@@ -1,2 +1,3 @@
-# makefile
-You know, make
+# Generic makefile
+
+You know, for `make`
