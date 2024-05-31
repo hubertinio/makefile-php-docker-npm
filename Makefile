@@ -18,7 +18,6 @@ PHP = $(PHP_CONT) php
 COMPOSER = $(PHP_CONT) composer
 SYMFONY = $(PHP_CONT) bin/console
 NPM = $(PHP_CONT) npm
-YRN = $(PHP_CONT) yarn
 
 # Executables: vendors
 PHPUNIT = $(PHP) bin/phpunit
@@ -62,8 +61,8 @@ front-lint: ## Run JS linter
 front-analyzer: ## Check stats
 	$(PHP_CONT) rm -rf var/cache/stats.json
 	$(PHP_CONT) rm -rf public/build/stats.html
-	$(YRN) run --silent build --json > var/cache/stats.json
-	$(YRN) webpack-bundle-analyzer --mode static --report public/build/stats.html --no-open var/cache/stats.json public/build
+	$(NPM) run --silent build --json > var/cache/stats.json
+	$(NPM) webpack-bundle-analyzer --mode static --report public/build/stats.html --no-open var/cache/stats.json public/build
 
 ##
 ## —— Docker 🐳 ————————————————————————————————————————————————————————————————
