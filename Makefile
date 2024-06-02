@@ -15,7 +15,7 @@ endif
 
 # Executables
 PHP = $(PHP_CONT) php
-COMPOSER = $(PHP_CONT) composer
+COMPOSER = $(PHP_CONT) bin/composer
 SYMFONY = $(PHP_CONT) bin/console
 NPM = $(PHP_CONT) npm
 NPX = $(PHP_CONT) npx
@@ -124,6 +124,9 @@ composer-dump: ## Dump composer
 
 composer-validate: ## Validate composer json and lock
 	$(COMPOSER) validate --ansi --strict
+
+composer-dump-env: ## Compiles .env.local.php
+	$(COMPOSER) symfony:dump-env prod
 
 ##
 ## —— Database 📜 ————————————————————————————————————————————————————————————————
