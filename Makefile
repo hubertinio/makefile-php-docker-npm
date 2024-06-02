@@ -156,7 +156,7 @@ fixture: ## Make fixtures and clear database
 
 cache-clear: ## Whole caches out
 	$(PHP_CONT) rm -rf var/cache/*
-	$(PHP) -r "opcache_reset();"
+	$(PHP) -r "function_exists('opcache_reset') && opcache_reset();"
 	$(SYMFONY) cache:clear
 	$(SYMFONY) cache:pool:prune
 
