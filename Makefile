@@ -1,5 +1,12 @@
+include .env
+
 # Executables (local)
-DOCKER_COMP = docker-compose
+DOCKER_COMP := docker compose
+
+# export APP_DOCKER_COMPOSE='docker-compose'
+ifdef APP_DOCKER_COMPOSE
+    DOCKER_COMP = ${APP_DOCKER_COMPOSE}
+endif
 
 PHP_SERVICE = app
 DB_SERVICE = database
