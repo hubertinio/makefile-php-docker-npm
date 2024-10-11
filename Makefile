@@ -150,9 +150,11 @@ migrations-status: ## Check migrations status
 
 migrations-generate: ## Create empty migration
 	$(SYMFONY) doctrine:migrations:generate
+	$(PHP_CONT) chown -R 1000:1000 .
 
 migrations-diff: ## Create migration diff
 	$(SYMFONY) doctrine:migrations:diff
+	$(PHP_CONT) chown -R 1000:1000 .
 
 fixture: ## Make fixtures and clear database
 	$(SYMFONY) h:f:l --env=dev --no-interaction
@@ -178,12 +180,6 @@ phpunit: ## Run Unit tests
 	$(SYMFONY) -e test doctrine:schema:update --force --no-interaction --quiet
 	$(PHPUNIT) -vvv tests/Unit --testdox
 
-e2e: ## Run end-2-end tests
-	$(PHPUNIT) -vvv tests/Integration --testdox
-
-phpspec: ## Run PHP Spec tests
-	$(PHPSPEC) run --ansi -f progress --no-interaction
-
 ##
 ## —— Quality Tools ✔️ ————————————————————————————————————————————————————————————————
 ##
@@ -198,6 +194,7 @@ ecs: ## Run Easy Coding Standard
 
 ecs-fix: ## Fix all Easy Coding Standard issues
 	$(ECS) check --fix
+	$(PHP_CONT) chown -R 1000:1000 .
 
 ##
 ## ——————————————————————————————————— End ———————————————————————————————————
