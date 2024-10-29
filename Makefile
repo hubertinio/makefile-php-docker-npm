@@ -173,11 +173,14 @@ cache-clear: ## Whole caches out
 ## —— Tests ✔️ ————————————————————————————————————————————————————————————————
 ##
 
-test: phpunit phpspec e2e ## Run all kind of tests
+test: phpunit e2e ## Run all kind of tests
 
-phpunit: ## Run Unit tests
+e2e: ## Run Unit tests
 	$(SYMFONY) -e test doctrine:database:create --if-not-exists --no-interaction --quiet
 	$(SYMFONY) -e test doctrine:schema:update --force --no-interaction --quiet
+	APP_ENV=test $(PHPUNIT) -vvv tests/Integration --testdox
+
+phpunit: ## Run Unit tests
 	$(PHPUNIT) -vvv tests/Unit --testdox
 
 ##
