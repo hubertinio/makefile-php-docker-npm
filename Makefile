@@ -112,7 +112,7 @@ ps: ## Display status of running containers
 ##
 
 security: ## Check security issues in project dependencies
-	$(SYMFONY_CLI) security:check
+	$(COMPOSER) audit
 
 ##
 ## —— Composer 🧙‍♂️ ————————————————————————————————————————————————————————————————
