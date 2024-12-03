@@ -1,4 +1,4 @@
-include .env
+#include .env
 
 # Executables (local)
 DOCKER_COMP := docker compose
