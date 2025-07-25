@@ -57,7 +57,7 @@ front-watch: ## Build dev and watch project
 	$(NPM) run watch
 
 front-install: ## Install node modules
-	$(PHP_CONT) rm -rf node_modules package-lock.json
+	$(PHP_CONT) rm -rf node_modules
 	$(NPM) install
 
 front-build: ## Build prod project
