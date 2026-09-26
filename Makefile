@@ -159,7 +159,7 @@ migrations-generate: ## Create empty migration
 	$(PHP_CONT) chown -R 1000:1000 .
 
 migrations-diff: ## Create migration diff
-	$(SYMFONY) doctrine:migrations:diff
+	$(SYMFONY) doctrine:migrations:diff --allow-empty-diff
 	$(PHP_CONT) chown -R 1000:1000 .
 
 fixture: ## Make fixtures and clear database
