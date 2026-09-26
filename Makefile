@@ -135,6 +135,9 @@ composer-dump: ## Dump composer
 composer-validate: ## Validate composer json and lock
 	$(COMPOSER) validate --ansi --strict
 
+composer-outdated: ## Validate composer json and lock
+	$(COMPOSER) outdated --ansi --strict
+
 composer-dump-env: ## Compiles .env.local.php
 	$(COMPOSER) symfony:dump-env prod
 
