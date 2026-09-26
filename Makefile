@@ -200,5 +200,12 @@ ecs-fix: ## Fix all Easy Coding Standard issues
 	$(PHP_CONT) chown -R 1000:1000 .
 
 ##
+## —— GH ✔️ ————————————————————————————————————————————————————————————————
+##
+
+gh-vars: ## Run linter
+	gh api repos/hubertinio/portfolio/environments/dev/variables --jq '.variables[] | "\(.name)=\(.value)"'
+
+##
 ## ——————————————————————————————————— End ———————————————————————————————————
 ##
