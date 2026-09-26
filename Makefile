@@ -67,6 +67,9 @@ front-build: ## Build prod project
 front-lint: ## Run JS linter
 	$(NPM) run lint:js
 
+front-security: ## Check security
+	$(NPM) audit --audit-level=high
+
 front-analyzer: ## Check stats
 	$(PHP_CONT) rm -rf var/cache/stats.json
 	$(PHP_CONT) rm -rf public/build/stats.html
