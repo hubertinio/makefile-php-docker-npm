@@ -187,7 +187,7 @@ e2e: ## Run Unit tests
 	APP_ENV=test $(PHPUNIT) tests/Integration --testdox --stop-on-failure
 
 phpunit: ## Run Unit tests
-	$(PHPUNIT) tests/Unit --testdox
+	$(PHPUNIT) --testsuite Unit --testdox
 
 ##
 ## —— Quality Tools ✔️ ————————————————————————————————————————————————————————————————
